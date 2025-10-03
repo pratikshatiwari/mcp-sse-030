@@ -1,0 +1,28 @@
+# Migrated from Azure DevOps Classic Pipeline: MCP-Server-SSE-Example main working
+# Original ADO Org: Pratikshatiwari
+# Original ADO Project: DemoAppp
+# Original ADO Repo: mcp-server-sse-example
+# Migration Date: 2025-10-03T11:42:57.691Z
+
+name: MCP-Server-SSE-Example main working
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
